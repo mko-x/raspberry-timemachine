@@ -33,7 +33,7 @@ echo "Ensure permissions"
 sudo chmod 777 /mnt/TimeMachine
 
 echo "Notice disk to Netatalk"
-sudo echo "/mnt/TimeMachine \"Time Machine\" options:tm" >> /etc/netatalk/AppleVolumes.default
+sudo echo "/mnt/TimeMachine \"Time Machine\" options:tm ${TM_VOLUME_LIMIT_ENABLED:+volsizelimit:${TM_VOLUME_LIMIT_SIZE_MB}" >> /etc/netatalk/AppleVolumes.default
 
 echo "Restarting Netatalk"
 sudo service netatalk restart
